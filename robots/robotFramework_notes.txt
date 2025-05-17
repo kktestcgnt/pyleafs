@@ -1,0 +1,29 @@
+Notes:
+1. In PyCharm need to install intli bot
+2. pip install robotframework
+3.pip install robotframework-seleniumlibrary
+
+Sites:
+ 1.https://rahulshettyacademy.com/loginpagePractise/
+ 2.https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+___________________________________________________
+
+	one.robot
+
+***Settings ***
+
+***Variables ***
+${message}=     Helloworld!!!
+***Test cases ***
+Print Variable To Console
+    Log To Console      ${message}
+
+***Keywords ***
+
+cmd>robot one.robot
+
+___________________________________________________
+***Settings ***
+***Variables ***
+***Test cases***
+***Key workds***

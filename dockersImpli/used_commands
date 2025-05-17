@@ -1,0 +1,2 @@
+command used to build a image from Dockerfile
+cmd>docker build -t rest-api-flask-python .
