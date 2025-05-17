@@ -11,6 +11,7 @@ Invalid_Login
 ***Keywords ***
 openChromBrowser
     Create Webdriver        Chrome
+    Maximize Browser Window
     Go To                   https://rahulshettyacademy.com/loginpagePractise/
 fillThePage
     Wait Until Element Is Visible       id:username
@@ -22,5 +23,5 @@ catchMsgForInvalidPage
     Wait Until Element Is Visible   xpath://div[contains(@class,'alert-danger')]
     ${msg}=      Get Text            xpath://div[contains(@class,'alert-danger')]
     Log To Console      ${msg}
-    Should Be Equal As Strings      Incorrect username/password..    ${msg}
+    Should Be Equal As Strings      Incorrect username/password.    ${msg}
 

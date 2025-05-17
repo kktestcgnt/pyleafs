@@ -13,3 +13,20 @@ git remote add origin https://github.com/kktestcgnt/pyleafs.git
 git branch -M main
 git push -u origin main
 
+*********************************************************************
+                                    iRobot
+
+create branch
+checkout to branch
+make the manuplations in branch
+git add .
+git commit -m ""
+git push origin branch
+In bit buck after completing all the changes ,click on merge request
+after getting two approvals,click on build
+
+********************************************************************
+
+
+
+
