@@ -1,0 +1,79 @@
+🧱 Sample HTML for Reference
+Here’s a basic HTML snippet we'll use in all examples:
+
+html
+Copy
+Edit
+<html>
+  <body>
+    <div>
+      <h1>Title</h1>
+      <p id="p1">Paragraph 1</p>
+      <p id="p2">Paragraph 2</p>
+      <span>Note</span>
+    </div>
+  </body>
+</html>
+🔍 XPath Relationship Examples
+1. Selecting a Parent Node
+Get the parent <div> of the paragraph with ID p1.
+
+xpath
+Copy
+Edit
+//p[@id='p1']/parent::div
+✅ This says: "Find the <p> with id='p1', then move up to its parent <div>."
+
+2. Selecting a Sibling Node
+Get the second paragraph (p2) that is a sibling of p1.
+
+xpath
+Copy
+Edit
+//p[@id='p1']/following-sibling::p
+✅ This means: "Starting from p1, get the next sibling <p> element."
+
+3. Selecting Any Following Sibling
+Get the <span> that follows p2.
+
+xpath
+Copy
+Edit
+//p[@id='p2']/following-sibling::span
+✅ This means: "From p2, find the next <span> sibling."
+
+4. Selecting a Preceding Sibling
+Get the <h1> that appears before p1.
+
+xpath
+Copy
+Edit
+//p[@id='p1']/preceding-sibling::h1
+✅ This means: "From p1, look for <h1> siblings before it."
+
+5. Selecting the First Child
+Get the first child of the <div> (which is the <h1>).
+
+xpath
+Copy
+Edit
+//div/*[1]
+✅ This means: "Get the first direct child of <div>."
+
+6. Selecting All Siblings
+Get all siblings of p1.
+
+xpath
+Copy
+Edit
+//p[@id='p1']/following-sibling::* | //p[@id='p1']/preceding-sibling::*
+✅ This selects all elements that are either before or after p1 on the same level.
+
+🎯 Tips for XPath:
+/ selects a direct child.
+
+// searches anywhere in the document.
+
+* matches any element.
+
+@ is used for attributes (e.g., @id).
