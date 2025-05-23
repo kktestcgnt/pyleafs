@@ -1,14 +1,14 @@
-***Settings ***
+*** Settings ***
 Library     SeleniumLibrary
 Library     BuiltIn
-***Variables ***
-***Test Cases ***
+*** Variables ***
+*** Test Cases ***
 Invalid_Login
     openChromBrowser
     fillThePage
     submitThePage
     catchMsgForInvalidPage
-***Keywords ***
+*** Keywords ***
 openChromBrowser
     Create Webdriver        Chrome
     Maximize Browser Window

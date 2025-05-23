@@ -18,7 +18,7 @@ git push -u origin main
 
 create branch
 checkout to branch
-make the manuplations to code in branch
+make the manipulation to code in branch
 git add .
 git commit -m ""
 git push origin branch

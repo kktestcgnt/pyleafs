@@ -1,9 +1,10 @@
-***Settings ***
+*** Settings ***
 
-***Variables ***
+*** Variables ***
 ${message}=     Helloworld!!!
-***Test cases ***
+
+*** Test Cases ***
 Print Variable To Console
     Log To Console      ${message}
 
-***Keywords ***
+*** Keywords ***
