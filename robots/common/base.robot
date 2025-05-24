@@ -3,10 +3,13 @@
 *** Variables ***
 ${url}      https://rahulshettyacademy.com/loginpagePractise/
 ${username}     rahulshettyacademy
-${password}
+${password}     learning
+${shopvalidation}=       Checkout ( 0 )
+
+
 
 *** Keywords ***
 openBrowser
-    Create Webdriver        Chrome
+    Create Webdriver        Firefox
     Maximize Browser Window
     Go To   ${url}
