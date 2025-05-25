@@ -49,7 +49,26 @@ cartPage
     Click Element   //button[contains(@class,'btn-success')]
     Wait Until Element Is Visible   //input[contains(@class,'filter-input')]
     Input Text  //input[contains(@class,'filter-input')]    Ind
+    sleep   5
     Wait Until Element Is Visible   //div[@class='suggestions']/ul
-    ${count}=   Get Elements    //div[@class='suggestions']/ul
-    Log To Console  ${count}
-    sleep   50
+    ${elements}=   Get WebElements    //div[@class='suggestions']/ul
+    ${item}=   Set Variable     India
+    ${index}=   Set Variable    0
+    FOR     ${each}    IN  ${elements}
+        ${index}=   Evaluate    ${index} + 1
+        ${text}=    Get Text    //div[@class='suggestions']/ul[${index}]
+        IF  '${text}' == '${item}'
+            #Log To Console  ${text}
+            Click Element   //div[@class='suggestions']/ul[${index}]
+            BREAK
+        END
+    END
+    sleep   1
+    click Element     //div[contains(@class,'checkbox-primary')]/label
+    sleep   1
+    Checkbox Should Be Selected     //div[contains(@class,'checkbox-primary')]/input
+    click Element         //div[contains(@class,'checkbox-primary')]//following-sibling::form/input
+    Wait Until Element Is Visible   //div[contains(@class,'alert-success')]/a
+    ${msg}=     Get Text    //div[contains(@class,'alert-success')]/strong
+    Log To Console  ${msg}
+    sleep   5
