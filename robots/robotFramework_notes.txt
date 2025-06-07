@@ -27,3 +27,11 @@ ___________________________________________________
 ***Variables ***
 ***Test cases***
 ***Key workds***
+
+------------------------------------------------
+robot --outputdir results tests/shoping.robot
+This will:
+
+Store log.html, report.html, and output.xml in the results/ folder.
+
+cmd> robot --outputdir robots/fw/reports  robots/fw/tests/shoping.robot
