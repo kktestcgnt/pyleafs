@@ -1,9 +1,6 @@
 !**/__pycache__/
 .venv/
 .idea/
-robots/log.html
-robots/output.xml
-robots/report.html
 
 *.pyc
 .DS_Store
