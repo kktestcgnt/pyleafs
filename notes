@@ -27,6 +27,6 @@ after getting two approvals,click on build
 
 ********************************************************************
 
-
+(.venv) PS D:\mkc\pyleafs> pip freeze > Requirments.txt
 
 
