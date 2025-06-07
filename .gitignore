@@ -4,7 +4,6 @@
 
 *.pyc
 .DS_Store
-*.html
 .pytest_cache
 
 
