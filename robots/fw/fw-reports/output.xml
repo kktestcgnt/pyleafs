@@ -1,222 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-07T19:57:04.810646" rpa="false" schemaversion="5">
-<suite id="s1" name="Shoping" source="D:\mkc\pyleafs\robots\fw\tests\shoping.robot">
-<test id="s1-t1" name="checkoutingMultipleProducts" line="10">
-<kw name="logInPage" owner="landingPageObjects" type="SETUP">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>landingpageaccess</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-07T19:57:05.176066" elapsed="0.000259"/>
-</kw>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-11T21:34:16.698529" rpa="false" schemaversion="5">
+<suite id="s1" name="loginPage" source="D:\mkc\pyleafs\robots\fw\tests\loginPage.robot">
+<test id="s1-t1" name="validlogin" line="8">
+<kw name="logInScenarios">
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:05.176620" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
+<msg time="2025-06-11T21:34:17.035688" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
 <arg>Firefox</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-06-07T19:57:05.176484" elapsed="7.744294"/>
+<status status="PASS" start="2025-06-11T21:34:17.035515" elapsed="6.838648"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-06-07T19:57:12.921168" elapsed="0.012702"/>
+<status status="PASS" start="2025-06-11T21:34:23.874528" elapsed="0.005744"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:12.934509" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
+<msg time="2025-06-11T21:34:23.880899" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-06-07T19:57:12.934175" elapsed="0.706497"/>
+<status status="PASS" start="2025-06-11T21:34:23.880554" elapsed="0.583434"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath://label[@for='username']/following-sibling::input</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-07T19:57:13.641001" elapsed="0.065695"/>
+<status status="PASS" start="2025-06-11T21:34:24.464270" elapsed="0.104660"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:13.707710" level="INFO">Typing text 'rahulshettyacademy' into text field 'xpath://*[@id='username']'.</msg>
+<msg time="2025-06-11T21:34:24.569639" level="INFO">Typing text 'rahulshettyacademy' into text field 'xpath://*[@id='username']'.</msg>
 <arg>xpath://*[@id='username']</arg>
 <arg>${userName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:13.707118" elapsed="0.151727"/>
+<status status="PASS" start="2025-06-11T21:34:24.569220" elapsed="0.212534"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:13.859461" level="INFO">Typing text 'learning' into text field 'xpath://input[@type='password']'.</msg>
+<msg time="2025-06-11T21:34:24.782551" level="INFO">Typing text 'learning' into text field 'xpath://input[@type='password']'.</msg>
 <arg>xpath://input[@type='password']</arg>
 <arg>${passWord}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:13.859110" elapsed="0.032362"/>
+<status status="PASS" start="2025-06-11T21:34:24.782078" elapsed="0.082801"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:13.891998" level="INFO">Clicking button '//input[@name='terms']/parent::span/parent::label/following-sibling::input'.</msg>
+<msg time="2025-06-11T21:34:24.865397" level="INFO">Clicking button '//input[@name='terms']/parent::span/parent::label/following-sibling::input'.</msg>
 <arg>//input[@name='terms']/parent::span/parent::label/following-sibling::input</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:13.891719" elapsed="0.385965"/>
+<status status="PASS" start="2025-06-11T21:34:24.865145" elapsed="0.283994"/>
 </kw>
 <kw name="ShopingPageValidation" owner="shopingPageObjects">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-07T19:57:14.278572" elapsed="2.404364"/>
+<status status="PASS" start="2025-06-11T21:34:25.150119" elapsed="2.624676"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:16.729280" level="INFO">${text} = ProtoCommerce</msg>
+<msg time="2025-06-11T21:34:27.794669" level="INFO">${text} = ProtoCommerce</msg>
 <var>${text}</var>
 <arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:16.683269" elapsed="0.046064"/>
+<status status="PASS" start="2025-06-11T21:34:27.775157" elapsed="0.019590"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${text}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-07T19:57:16.729510" elapsed="0.000363"/>
+<status status="PASS" start="2025-06-11T21:34:27.795043" elapsed="0.005546"/>
 </kw>
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:16.730292" level="INFO">Verifying element 'xpath://nav[contains(class,navbar-expand-sm)]/a' contains exact text 'ProtoCommerce'.</msg>
+<msg time="2025-06-11T21:34:27.801554" level="INFO">Verifying element 'xpath://nav[contains(class,navbar-expand-sm)]/a' contains exact text 'ProtoCommerce'.</msg>
 <arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
 <arg>${text}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2025-06-07T19:57:16.730018" elapsed="0.054471"/>
+<status status="PASS" start="2025-06-11T21:34:27.801169" elapsed="0.075024"/>
 </kw>
-<status status="PASS" start="2025-06-07T19:57:14.278106" elapsed="2.506752"/>
-</kw>
-<status status="PASS" start="2025-06-07T19:57:05.175439" elapsed="11.609652"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Welcome to shoping</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-07T19:57:16.785540" elapsed="0.001736"/>
-</kw>
-<kw name="Selecting Products" owner="Shope">
-<msg time="2025-06-07T19:57:16.868453" level="INFO">Clicking button '//app-card-list[@class='row']/app-card[2]/div/*[3]/button'.</msg>
-<msg time="2025-06-07T19:57:17.182073" level="INFO">Clicking button '//app-card-list[@class='row']/app-card[3]/div/*[3]/button'.</msg>
-<arg>${productsToPurchase}</arg>
-<status status="PASS" start="2025-06-07T19:57:16.787998" elapsed="0.654156"/>
-</kw>
-<kw name="paymentGageway" owner="paymentGateWayPageObjects">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:17.443473" level="INFO">Clicking element 'xpath://div[contains(@class,'navbar-collapse')]/ul/li'.</msg>
-<arg>xpath://div[contains(@class,'navbar-collapse')]/ul/li</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:17.443243" elapsed="0.223546"/>
+<status status="PASS" start="2025-06-11T21:34:25.149590" elapsed="2.726844"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-06-07T19:57:20.667969" level="INFO">Slept 3 seconds.</msg>
-<arg>3</arg>
+<msg time="2025-06-11T21:34:42.877246" level="INFO">Slept 15 seconds.</msg>
+<arg>15</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-06-07T19:57:17.667051" elapsed="3.001177"/>
+<status status="PASS" start="2025-06-11T21:34:27.876705" elapsed="15.000828"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//div[contains(@class,'col-md-10')]/table/thead/tr/th[1]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-07T19:57:20.668629" elapsed="0.027157"/>
-</kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:20.696683" level="INFO">Verifying element '//div[contains(@class,'col-md-10')]/table/thead/tr/th[1]' contains exact text 'Product'.</msg>
-<arg>//div[contains(@class,'col-md-10')]/table/thead/tr/th[1]</arg>
-<arg>Product</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2025-06-07T19:57:20.696159" elapsed="0.022509"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:20.719245" level="INFO">Clicking element '//button[@class='btn btn-success']'.</msg>
-<arg>//button[@class='btn btn-success']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:20.718905" elapsed="0.233432"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//input[contains(@class,'filter-input')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-07T19:57:20.952518" elapsed="0.011549"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:20.965388" level="INFO">Clicking element '//div[contains(@class,'checkbox')]/label'.</msg>
-<arg>//div[contains(@class,'checkbox')]/label</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:20.965046" elapsed="0.215968"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//input[contains(@class,'filter-input')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-07T19:57:21.181750" elapsed="0.026267"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:21.208933" level="INFO">Typing text 'Ind' into text field '//input[contains(@class,'filter-input')]'.</msg>
-<arg>//input[contains(@class,'filter-input')]</arg>
-<arg>${country}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:21.208477" elapsed="0.056436"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-06-07T19:57:23.266278" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-06-07T19:57:21.265480" elapsed="2.001036"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//div[contains(@class,'input-field')]/following-sibling::div/ul/li[1]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-07T19:57:23.266853" elapsed="3.123869"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:26.391418" level="INFO">Clicking element '//div[contains(@class,'input-field')]/following-sibling::div/ul/li[1]'.</msg>
-<arg>//div[contains(@class,'input-field')]/following-sibling::div/ul/li[1]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:26.391068" elapsed="0.222501"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//input[contains(@class,'btn-success')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-07T19:57:26.614027" elapsed="0.023766"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:26.638550" level="INFO">Clicking element '//input[contains(@class,'btn-success')]'.</msg>
-<arg>//input[contains(@class,'btn-success')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:26.638132" elapsed="0.392608"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//div[contains(@class,'alert-success')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-07T19:57:27.031184" elapsed="0.016036"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-06-07T19:57:27.063505" level="INFO">${msg} = Success!</msg>
-<var>${msg}</var>
-<arg>//div[contains(@class,'alert-success')]/strong</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-07T19:57:27.047805" elapsed="0.015784"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-07T19:57:27.063858" elapsed="0.002876"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Payment Successful</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-07T19:57:27.067068" elapsed="0.002022"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-06-07T19:57:37.070758" level="INFO">Slept 10 seconds.</msg>
-<arg>10</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-06-07T19:57:27.069397" elapsed="10.001627"/>
-</kw>
-<status status="PASS" start="2025-06-07T19:57:17.442744" elapsed="19.628537"/>
+<arg>rahulshettyacademy</arg>
+<arg>learning</arg>
+<status status="PASS" start="2025-06-11T21:34:17.034724" elapsed="25.843063"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-06-07T19:57:37.072296" elapsed="3.601274"/>
+<status status="PASS" start="2025-06-11T21:34:42.878631" elapsed="3.182038"/>
 </kw>
-<status status="PASS" start="2025-06-07T19:57:05.174706" elapsed="35.499162"/>
+<status status="PASS" start="2025-06-11T21:34:17.033899" elapsed="29.027359"/>
 </test>
-<status status="PASS" start="2025-06-07T19:57:04.812563" elapsed="35.862488"/>
+<test id="s1-t2" name="invalidUser" line="9">
+<kw name="logInScenarios">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-06-11T21:34:46.064660" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
+<arg>Firefox</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-06-11T21:34:46.064349" elapsed="6.777149"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-11T21:34:52.841785" elapsed="0.003687"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-06-11T21:34:52.846079" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-06-11T21:34:52.845766" elapsed="0.676458"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://label[@for='username']/following-sibling::input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-11T21:34:53.522502" elapsed="0.071497"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-11T21:34:53.594668" level="INFO">Typing text 'rahulshettyacademy123' into text field 'xpath://*[@id='username']'.</msg>
+<arg>xpath://*[@id='username']</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-11T21:34:53.594291" elapsed="0.200275"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-11T21:34:53.795264" level="INFO">Typing text 'learning' into text field 'xpath://input[@type='password']'.</msg>
+<arg>xpath://input[@type='password']</arg>
+<arg>${passWord}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-11T21:34:53.794873" elapsed="0.065884"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-06-11T21:34:53.862357" level="INFO">Clicking button '//input[@name='terms']/parent::span/parent::label/following-sibling::input'.</msg>
+<arg>//input[@name='terms']/parent::span/parent::label/following-sibling::input</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-11T21:34:53.861436" elapsed="0.294799"/>
+</kw>
+<kw name="ShopingPageValidation" owner="shopingPageObjects">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-06-11T21:34:59.414417" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-06-11T21:34:59.414677" level="FAIL">Element 'xpath://nav[contains(class,navbar-expand-sm)]/a' not visible after 5 seconds.</msg>
+<arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-06-11T21:34:54.157139" elapsed="5.261859">Element 'xpath://nav[contains(class,navbar-expand-sm)]/a' not visible after 5 seconds.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-06-11T21:34:59.419498" elapsed="0.000053"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-06-11T21:34:59.419680" elapsed="0.000029"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="NOT RUN" start="2025-06-11T21:34:59.419800" elapsed="0.000045"/>
+</kw>
+<status status="FAIL" start="2025-06-11T21:34:54.156652" elapsed="5.263348">Element 'xpath://nav[contains(class,navbar-expand-sm)]/a' not visible after 5 seconds.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-06-11T21:34:59.420161" elapsed="0.000033"/>
+</kw>
+<arg>rahulshettyacademy123</arg>
+<arg>learning</arg>
+<status status="FAIL" start="2025-06-11T21:34:46.063584" elapsed="13.356714">Element 'xpath://nav[contains(class,navbar-expand-sm)]/a' not visible after 5 seconds.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-11T21:34:59.420814" elapsed="3.252222"/>
+</kw>
+<status status="FAIL" start="2025-06-11T21:34:46.062575" elapsed="16.610980">Element 'xpath://nav[contains(class,navbar-expand-sm)]/a' not visible after 5 seconds.</status>
+</test>
+<status status="FAIL" start="2025-06-11T21:34:16.700504" elapsed="45.974833"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Shoping" id="s1" pass="1" fail="0" skip="0">Shoping</stat>
+<stat name="loginPage" id="s1" pass="1" fail="1" skip="0">loginPage</stat>
 </suite>
 </statistics>
 <errors>
