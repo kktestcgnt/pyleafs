@@ -16,7 +16,20 @@ ${message}=     Helloworld!!!
 
 *** Test Cases ***
 Print Variable To Console
-    Log To Console      ${message}
-
+    display     2
+    display     2
 
 *** Keywords ***
+display
+    [Arguments]     ${value}
+    IF  ${value} == 1
+            printingTrue
+    ELSE
+            printingFalse
+    END
+
+printingTrue
+    Log To Console      True
+
+printingFalse
+    Log To Console      False
