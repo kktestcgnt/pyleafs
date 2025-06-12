@@ -35,3 +35,6 @@ This will:
 Store log.html, report.html, and output.xml in the results/ folder.
 
 cmd> robot --outputdir robots/fw/reports  robots/fw/tests/shoping.robot
+cmd> robot --outputdir robots/fw/fw-reports  robots/fw/tests/loginPage.robot
+cmd> robot --outputdir robots/fw/fw-reports  robots/fw/tests/
+
