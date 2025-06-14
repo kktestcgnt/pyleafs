@@ -1,0 +1,18 @@
+cmd> sudo systemctl status docker
+cmd>sudo systemctl start docker
+cmd>sudo systemctl enable docker
+cmd>sudo systemctl daemon-reload
+cmd>sudo systemctl restart docker
+cmd>docker stop fastapi_restapp
+
+cmd>sudo systemctl stop docker.socket
+cmd>docker ps
+cmd>docker ps-a
+cmd>docker ps -a
+
+cmd> docker build -t api-app-launch .
+cmd>docker run -p 5005:8080 api-app-launch
+
+cmd>make run
+same linux system : endpoint -> http://localhost:8080/docs#/
+hostsystem/other windows : endpoint -> http://192.168.0.131:8080/docs#/
