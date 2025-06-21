@@ -39,7 +39,18 @@ cmd> robot --outputdir robots/fw/fw-reports  robots/fw/tests/loginPage.robot
 cmd> robot --outputdir robots/fw/fw-reports  robots/fw/tests/
 
 --------------------------------------------------
-->	to run all the testcases in folder 
+
+cmd>robot .
+to run all test cases parallel need to install the plugin
+cmd>pip install -U robotframework-pabot
+
+run all testcases parallely
+cmd>pabot .
+run all testcases in a file parallely
+cmd>pabot --testlevelsplit  nameoffile.robot
+
+
+->	to run all the testcases in folder
 cmd>robot -t "testcasename" .   
 or
 cmd>robot -t "testcasename" filename.robot
@@ -64,3 +75,5 @@ cmd>robot --suit tests .
 cmd>robot --rerunfailed output.xml
 ->	command line argument passing and using 
 cmd>robot --variable nameofvariable:value testcasename
+
+____________________________________
