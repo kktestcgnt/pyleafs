@@ -38,3 +38,29 @@ cmd> robot --outputdir robots/fw/reports  robots/fw/tests/shoping.robot
 cmd> robot --outputdir robots/fw/fw-reports  robots/fw/tests/loginPage.robot
 cmd> robot --outputdir robots/fw/fw-reports  robots/fw/tests/
 
+--------------------------------------------------
+->	to run all the testcases in folder 
+cmd>robot -t "testcasename" .   
+or
+cmd>robot -t "testcasename" filename.robot
+->	with partial testcasename as shown below 
+cmd>robot -t "input*" . 
+->	running test with tag name for this we need to add below statement to testcasename
+	Testcase  [tags]  SMOKE 
+cmd>robot --include SMOKE . 
+->	run test with multiple tags 
+cmd>robot --include SMOKEORREGRESSION .
+	Testcase  [tags]  SMOKE 
+cmd>robot --include SMOKE . 
+cmd>robot --include SMOKE AND REGRESSION . 
+	Testcase  [tags]  SMOKE REGRESSION 
+cmd>robot --include SMOKE . 
+->	run the total test suite but exclude one testcasename 
+	Testcase  [tags]  NEW 
+cmd>robot --exclude NEW . 
+->	to run test in perticular folder for example the tests folder come out of the test folder and run tests by below command 
+cmd>robot --suit tests . 
+->	to run the failed testcases 
+cmd>robot --rerunfailed output.xml
+->	command line argument passing and using 
+cmd>robot --variable nameofvariable:value testcasename
