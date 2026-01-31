@@ -1,0 +1,6 @@
+for installing pytest
+	pip install pytest
+for installing playwright plugin
+	pip install playwright-pytest
+for installing required browsers
+	playwright install

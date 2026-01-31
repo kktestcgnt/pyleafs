@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-12-03T20:59:44.527868" rpa="false" schemaversion="5">
+<suite id="s1" name="Shoping" source="D:\mkc\pyleafs\robots\fw\tests\shoping.robot">
+<test id="s1-t1" name="checkoutingMultipleProducts" line="9">
+<kw name="logInPage" owner="landingPageObjects" type="SETUP">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>landingpageaccess</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-12-03T20:59:44.868224" elapsed="0.000294"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:44.869179" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
+<arg>Firefox</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-12-03T20:59:44.869006" elapsed="7.229563"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-12-03T20:59:52.098900" elapsed="0.004229"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:52.103874" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-12-03T20:59:52.103545" elapsed="0.602656"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://label[@for='username']/following-sibling::input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-03T20:59:52.706618" elapsed="0.070515"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:52.777830" level="INFO">Typing text 'rahulshettyacademy' into text field 'xpath://*[@id='username']'.</msg>
+<arg>xpath://*[@id='username']</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-03T20:59:52.777423" elapsed="0.206034"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:52.984548" level="INFO">Typing text 'learning' into text field 'xpath://input[@type='password']'.</msg>
+<arg>xpath://input[@type='password']</arg>
+<arg>${passWord}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-03T20:59:52.984134" elapsed="0.066377"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:53.051278" level="INFO">Clicking button '//input[@name='terms']/parent::span/parent::label/following-sibling::input'.</msg>
+<arg>//input[@name='terms']/parent::span/parent::label/following-sibling::input</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-03T20:59:53.050896" elapsed="0.123374"/>
+</kw>
+<kw name="ShopingPageValidation" owner="shopingPageObjects">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-03T20:59:53.175153" elapsed="2.366634"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:55.617638" level="INFO">${text} = ProtoCommerce</msg>
+<var>${text}</var>
+<arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-03T20:59:55.542079" elapsed="0.075647"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-12-03T20:59:55.617998" elapsed="0.007784"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:55.626765" level="INFO">Verifying element 'xpath://nav[contains(class,navbar-expand-sm)]/a' contains exact text 'ProtoCommerce'.</msg>
+<arg>xpath://nav[contains(class,navbar-expand-sm)]/a</arg>
+<arg>${text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-12-03T20:59:55.626171" elapsed="0.073139"/>
+</kw>
+<status status="PASS" start="2025-12-03T20:59:53.174673" elapsed="2.525138"/>
+</kw>
+<status status="PASS" start="2025-12-03T20:59:44.867583" elapsed="10.832451"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Welcome to shoping</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-12-03T20:59:55.700728" elapsed="0.001049"/>
+</kw>
+<kw name="Selecting Products" owner="Shope">
+<msg time="2025-12-03T20:59:55.766735" level="INFO">Clicking button '//app-card-list[@class='row']/app-card[2]/div/*[3]/button'.</msg>
+<msg time="2025-12-03T20:59:55.932485" level="INFO">Clicking button '//app-card-list[@class='row']/app-card[3]/div/*[3]/button'.</msg>
+<arg>${productsToPurchase} #custom keyword which is in shop.py</arg>
+<status status="PASS" start="2025-12-03T20:59:55.702196" elapsed="0.359970"/>
+</kw>
+<kw name="paymentGageway" owner="paymentGateWayPageObjects">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:56.064981" level="INFO">Clicking element 'xpath://div[contains(@class,'navbar-collapse')]/ul/li'.</msg>
+<arg>xpath://div[contains(@class,'navbar-collapse')]/ul/li</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-03T20:59:56.064178" elapsed="0.104212"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-12-03T20:59:59.169505" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-12-03T20:59:56.168705" elapsed="3.001138"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//div[contains(@class,'col-md-10')]/table/thead/tr/th[1]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-03T20:59:59.170367" elapsed="0.020977"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:59.192300" level="INFO">Verifying element '//div[contains(@class,'col-md-10')]/table/thead/tr/th[1]' contains exact text 'Product'.</msg>
+<arg>//div[contains(@class,'col-md-10')]/table/thead/tr/th[1]</arg>
+<arg>Product</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-12-03T20:59:59.191814" elapsed="0.014222"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:59.207335" level="INFO">Clicking element '//button[@class='btn btn-success']'.</msg>
+<arg>//button[@class='btn btn-success']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-03T20:59:59.206668" elapsed="0.084369"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//input[contains(@class,'filter-input')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-03T20:59:59.291511" elapsed="0.021141"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:59.313525" level="INFO">Clicking element '//div[contains(@class,'checkbox')]/label'.</msg>
+<arg>//div[contains(@class,'checkbox')]/label</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-03T20:59:59.313099" elapsed="0.077725"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//input[contains(@class,'filter-input')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-03T20:59:59.391197" elapsed="0.018381"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-03T20:59:59.410265" level="INFO">Typing text 'Ind' into text field '//input[contains(@class,'filter-input')]'.</msg>
+<arg>//input[contains(@class,'filter-input')]</arg>
+<arg>${country}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-03T20:59:59.409879" elapsed="0.058028"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-12-03T21:00:01.470065" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-12-03T20:59:59.468540" elapsed="2.001801"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//div[contains(@class,'input-field')]/following-sibling::div/ul/li[1]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-03T21:00:01.470824" elapsed="3.126390"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-03T21:00:04.598187" level="INFO">Clicking element '//div[contains(@class,'input-field')]/following-sibling::div/ul/li[1]'.</msg>
+<msg time="2025-12-03T21:00:04.749211" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-12-03T21:00:04.749753" level="FAIL">ElementClickInterceptedException: Message: Element &lt;li&gt; is not clickable at point (668,242) because another element &lt;div class="overlay nsm-overlay-open"&gt; obscures it
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:327:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
+</msg>
+<arg>//div[contains(@class,'input-field')]/following-sibling::div/ul/li[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-12-03T21:00:04.597680" elapsed="0.163820">ElementClickInterceptedException: Message: Element &lt;li&gt; is not clickable at point (668,242) because another element &lt;div class="overlay nsm-overlay-open"&gt; obscures it
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:327:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//input[contains(@class,'btn-success')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-12-03T21:00:04.762057" elapsed="0.000118"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//input[contains(@class,'btn-success')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-12-03T21:00:04.762794" elapsed="0.000106"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//div[contains(@class,'alert-success')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-12-03T21:00:04.763260" elapsed="0.000076"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${msg}</var>
+<arg>//div[contains(@class,'alert-success')]/strong</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-12-03T21:00:04.763633" elapsed="0.000082"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-12-03T21:00:04.764008" elapsed="0.000091"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Payment Successful</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-12-03T21:00:04.764380" elapsed="0.000093"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-12-03T21:00:04.764755" elapsed="0.000072"/>
+</kw>
+<status status="FAIL" start="2025-12-03T20:59:56.063423" elapsed="8.701795">ElementClickInterceptedException: Message: Element &lt;li&gt; is not clickable at point (668,242) because another element &lt;div class="overlay nsm-overlay-open"&gt; obscures it
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:327:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-12-03T21:00:04.766132" elapsed="3.591408"/>
+</kw>
+<status status="FAIL" start="2025-12-03T20:59:44.866743" elapsed="23.491289">ElementClickInterceptedException: Message: Element &lt;li&gt; is not clickable at point (668,242) because another element &lt;div class="overlay nsm-overlay-open"&gt; obscures it
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:327:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
+</status>
+</test>
+<status status="FAIL" start="2025-12-03T20:59:44.530305" elapsed="23.840156"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Shoping" id="s1" pass="0" fail="1" skip="0">Shoping</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-12-03T21:34:06.990561" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot Practice" source="D:\mkc\pyleafs\robots\robot_practice.robot">
+<test id="s1-t1" name="Add Numbers Without Variables" line="4">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-03T21:34:07.038763" level="INFO">${value} = 30</msg>
+<var>${value}</var>
+<arg>10 + 20</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-03T21:34:07.038485" elapsed="0.000319"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>The result is ${value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-12-03T21:34:07.039082" elapsed="0.000282"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>The result is ${total}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-12-03T21:34:07.039549" elapsed="0.000418"/>
+</kw>
+<status status="PASS" start="2025-12-03T21:34:07.037686" elapsed="0.002573"/>
+</test>
+<status status="PASS" start="2025-12-03T21:34:06.992693" elapsed="0.048445"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robot Practice" id="s1" pass="1" fail="0" skip="0">Robot Practice</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

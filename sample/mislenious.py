@@ -58,3 +58,19 @@
 #     fp.write(val)
 # print(val2)
 
+one=[1,2,3,4,5]
+two=[1,2]
+three=[1,2,3]
+four=[1,2,3,4]
+dummy2=[0,0,0,0,0]
+dummy=one+two+three+four
+print(dummy)
+for each in range(0,len(one)):
+    dummy2[each] = dummy2[each] + one[each]
+    if each < len(two):
+        dummy2[each]=dummy2[each]+two[each]
+    if each < len(three):
+        dummy2[each]=dummy2[each]+three[each]
+    if each < len(four):
+        dummy2[each]=dummy2[each]+four[each]
+print(dummy2)
