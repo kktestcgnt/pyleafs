@@ -32,6 +32,22 @@ after getting two approvals,click on build
 ********************************************************************
                         codespace/jenkins/python
 
+->Click on Create a new code space in git repo
+->Select a repository
+        eg:pyleafs
+        Breanc : main
+        Region : southeast asia
+        machine type :2 core
+-> click on create
+-> cmd > docker ps
+-> cmd > docker start jenkins
+        will get no jenkins found
+-> cmd >docker run -d   --name jenkins   -p 8080:8080   -p 50000:50000   -v jenkins_home:/var/jenkins_home   jenkins/jenkins:lts
+-> after completion of installation will get a popup ,open jenkins on browser click on it
+->docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+    eg: 9826de431c4a4484b694805b63ddd1e5
+->
+
 username : Krishnachaya
 pwd : Krishnachaya@1712
 jenkins link : https://laughing-xylophone-7q7gpqpvrx5cxxw9-8080.app.github.dev/
