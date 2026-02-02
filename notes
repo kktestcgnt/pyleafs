@@ -48,12 +48,15 @@ after getting two approvals,click on build
     eg: 9826de431c4a4484b694805b63ddd1e5
 -> in opend jenkins application in browser, fill the above password.
 -> Click on install suggestion plugins option 
-->
-
+-> After completion of installation, will open the first admin creation page
 username : Krishnachaya
 pwd : Krishnachaya@1712
-jenkins link : https://laughing-xylophone-7q7gpqpvrx5cxxw9-8080.app.github.dev/
-
+email : kc103231@gmail.com or k.k.test.cgnt@gmail.com
+->will generate the jenkins url
+jenkins link :
+  k.k.test.cgnt :: https://laughing-xylophone-7q7gpqpvrx5cxxw9-8080.app.github.dev/
+  kc103231 :: https://jubilant-broccoli-q6jx546574x2x76p-8080.app.github.dev/
+  
 ->first need to create the jenkins_home folder in root repository(pyleafs)
 cmd> docker run -d   --name jenkins   -p 8080:8080   -p 50000:50000   -v jenkins_home:/var/jenkins_home   jenkins/jenkins:lts
 cmd>docker exec -it -u root jenkins bash
