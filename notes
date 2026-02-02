@@ -46,6 +46,8 @@ after getting two approvals,click on build
 -> after completion of installation will get a popup ,open jenkins on browser click on it
 ->docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
     eg: 9826de431c4a4484b694805b63ddd1e5
+-> in opend jenkins application in browser, fill the above password.
+-> Click on install suggestion plugins option 
 ->
 
 username : Krishnachaya
