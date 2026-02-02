@@ -16,7 +16,7 @@ pipeline {
                 python3 --version
 
                 echo "Running sample.py"
-                python3 sample.py
+                python3 Jenkins_python.py
                 '''
             }
         }
