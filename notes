@@ -71,3 +71,21 @@ pipeline {
 
 ->create Jenkins_python.py File
 print("This file is in pyleaf rep of github of kktestcgnt/pyleafs")
+
+->docker start jenkins
+        ->click new item
+        ->give name to jenkins job(run-sample-file)
+        ->click on pipeline
+        ->In definition click below one
+                pipeline script from SCM
+        ->In SCM select below one
+                git
+        ->Click Repositorys
+                In repository url fill with below
+                        eg : https://github.com/kktestcgnt/pyleafs.git
+
+        ->In Branch specifier fill with below
+                    */main
+
+        ->click ok to create a pipeline
+        ->click on job created and then click on build now
