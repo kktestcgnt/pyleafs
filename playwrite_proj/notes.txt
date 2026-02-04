@@ -4,3 +4,35 @@ for installing playwright plugin
 	pip install playwright-pytest
 for installing required browsers
 	playwright install
+
+******************************************
+
+import playwright.sync_api import Page, Playwright, expect
+
+def test_one(playwright):
+      browser=playwright.chromium.launch(headless = False)
+                        or
+      browser=playwright.firefox.launch(headless=False)
+      context=browser.new_context()
+      page=context.new_page()
+      page.goto("<url_link here>")
+      
+def test_two(page:Page):
+      page.goto("<url_link here>")
+      page.get_by_label("<label_name>").fill("<username>")
+                        or
+      await page.locator('input[name="username"]').fill("Admin")
+      #dropdown
+      page.get_by_role("combobox").select_option("teach")
+      page.get_by_role("button").click()
+                  or
+      page.get_by_role("button",name="Sign In").click()
+      page.get_by_role("link",name="terms and consitions").click()
+      {CSS Selector <#idname or .classname or tagname> as shown below here #term is id name and need to use locator as shown below}
+      page.locator(#terms).check()
+      expect(page.get_by_text("Incorrect username/password.")).to_be_visible()
+      time.sleep(5)
+      #selecting the elements from shopping
+      iphone_product=page.locator("app_card").filter(has_text="iphone X")
+      iphone_product.get_by_role("button").click()
+
