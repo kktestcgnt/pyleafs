@@ -110,3 +110,163 @@ print("This file is in pyleaf rep of github of kktestcgnt/pyleafs")
 
         ->click ok to create a pipeline
         ->click on job created and then click on build now
+
+********************************************************************
+I am having two windows base os systems(System-1 and System-2). In System-1 i am having python file in D drive that needs to be executed. 
+In System-2 i want to install jenkins, i need step by step how to install in System-2 After installing the jenkins in System-2 ,
+create a jenkins pipline that runs the python file which is there in System-1. need the steps how to acheive this through jenkins node.
+********************************************************************
+STEP-1
+System-2 (Windows)
+→ Jenkins Controller (UI + Pipeline)
+
+System-1 (Windows)
+→ Jenkins Agent
+→ Has Python installed
+→ Has your Python file in D:\scripts\test.py
+
+On both System-1 & System-2:
+
+Download Java 17 (LTS)
+https://adoptium.net
+
+Install → next → next.
+
+Verify:
+edit environtment variables : JAVA_HOME = C:\Program Files\Java\jdk-21\bin\java.exe
+cmd> java -version
+
+
+STEP 2: Install Jenkins on System-2 (Controller)
+1. Download Jenkins (Windows)
+
+https://www.jenkins.io/download/
+
+Choose:
+
+Windows Installer (.msi)
+
+2. Install Jenkins
+
+Run .msi
+
+Default port: 8080
+
+Service account: Local System (recommended)
+
+Finish install
+
+3. Unlock Jenkins
+
+Open browser:
+
+http://localhost:8080
+
+
+Password location:
+
+C:\Program Files\Jenkins\secrets\initialAdminPassword
+
+
+Paste password → Install Suggested Plugins
+
+4. Create admin user
+
+Done 🎉 Jenkins is up.
+
+STEP 3: Create Jenkins Agent (Node) on System-2
+1. Go to Jenkins Dashboard →
+
+Manage Jenkins → Nodes → New Node
+
+2. Node configuration
+Field	Value
+Node name	windows-agent-1
+Type	Permanent Agent
+3. Node details
+Setting	Value
+Remote root directory	C:\jenkins_agent
+Labels	win-agent
+Usage	Only build jobs with label expressions
+Launch method	Launch agent by connecting it to the controller
+Availability	Keep this agent online
+
+Save.
+
+note: 
+for agent download in system-1 use below steps 
+cmd>mkdir C:\jenkins_agent
+cmd>cd jenkins_agent
+cmd>curl.exe -sO http://localhost:8080/jnlpJars/agent.jar
+                        or
+browser> http://localhost:8080/jnlpJars/agent.jar
+cmd>java -jar agent.jar -url http://localhost:8080/ -secret 567b0f5712882f8a6c9f37325f952a7a0f83b99f9e42b04b2b0d40b9 -name "windows-agent-1" -webSocket -workDir "C:\jenkins_agent"
+response:
+INFO: Connecting to http://192.168.1.20:8080/
+INFO: Handshaking
+INFO: Connected
+
+if not connected : check below ones
+In this file C:\Program Files\Jenkins\jenkins.xml 
+for this line in jenkins.xml 
+<arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "C:\Program Files\Jenkins\jenkins.war" --httpPort=8080 --webroot="%ProgramData%\Jenkins\war"</arguments>
+{httpListenAddress=0.0.0.0 is not there in above line after adding it looks like}
+<arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "C:\Program Files\Jenkins\jenkins.war" --httpListenAddress=0.0.0.0 --httpPort=8080 --webroot="%ProgramData%\Jenkins\war"</arguments>
+
+note:
+Open firewall (don’t skip)
+
+On System-2:
+
+Windows Defender Firewall
+
+Advanced settings
+
+Inbound Rules → New Rule
+
+Port → TCP → 8080 → Allow
+
+✅ Step-6.1: Create a new Pipeline job
+
+On System-2 Jenkins UI:
+
+Open browser → http://localhost:8080
+
+Click New Item
+
+Enter name:
+
+run-python-from-system1
+
+
+Select Pipeline
+
+Click OK
+
+groovy file:
+pipeline {
+    agent {
+        label 'windows-agent-1'
+    }
+
+    stages {
+        stage('Check Java & Python') {
+            steps {
+                bat '''
+                java -version
+                python --version
+                '''
+            }
+        }
+
+        stage('Run Python File on System-1') {
+            steps {
+                bat '''
+                python D:\Preparations\Jenkins_remote_python_execution\one.py
+                '''
+            }
+        }
+    }
+}
+
+
