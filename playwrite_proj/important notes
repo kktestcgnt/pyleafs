@@ -1,0 +1,287 @@
+***********************************************************************
+links :
+ https://rahulshettyacademy.com/loginpagePractise/
+ https://rahulshettyacademy.com/angularpractice/shop
+ https://rahulshettyacademy.com/AutomationPractice/
+ https://playwright.dev/docs/actionability
+ https://rahulshettyacademy.com/seleniumPractise/#/
+ https://rahulshettyacademy.com/seleniumPractise/#/offers
+ https://rahulshettyacademy.com/client/auth/login
+ useremail:kchaitanya.manchella@gmail.com pwd : Krishnachaya@1712
+ useremail:rahulshetty@gmail.com pwd:Iamking@000
+ 
+ 
+
+***********************************************************************
+1.install playwright package ie pytest-playwright
+	a.playwright install
+2.default fixture of playwright is playwright
+3.to open the chrome/edge browser
+      def test_one(playwright)
+            browser= playwright.chromium.launch(headless=False)
+            context= browser.new_context()
+            page= context.new_page()
+            page.goto("https://rahulshettyacademy.com")
+			
+	FIREFOX
+		from playwright.sync_api import Playwright
+		def test_oneone(playwright:Playwright)
+			firefox=playwright.firefox
+			browser=firefox.launch(headless=False)
+			page=browser.new_page()
+			
+4.  from playwright.sync_api import Page
+
+      def test_one(page:Page)
+            page.goto("https://rahulshettyacademy.com")
+            
+5. cmd>pytest test_filename.py::test_function --headed
+6.    def test__two(page:Page):
+            page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+7. FOR FORM FIELD            
+for username html inspection is shown below
+            """
+            <div class="form-group"> => $0
+                  <label for="username" class="text-white">Username:</label>
+                  <br>
+                  <input type="text" name="username" id="username" class="form-control" data-gtm-form-interact-field-id="0">
+            </div>
+            """
+      page.get_by_label("Username:").fill("rahulshettyacademy")
+8.for password html shown below
+            <div class="form-group">
+                  <label for="password" class="text-white">Password:</label>
+                      <br>
+                  <input type="password" name="password" id="password" class="form-control"> == $0
+            </div>
+      page.get_by_label("Password:").fill("learning")
+9.FOR DROP DOWN
+      <div class="form-group">
+            <select class="form-control" data-style="btn-info">
+                  <option value="stud">Student</option>
+                  <option value="teach">Teacher</option>
+                  <option value="consult">Consultant</option>
+            </select>
+      </div>
+      page.get_by_role("combobox").select_option("teach")
+10.FOR BUTTON
+      <div class="form-group">
+            <label for="terms" class="text-info"></label>
+            <br>
+            <input id="signInBtn" type="submit" name="signin" class="btn btn-info btn-md" value="Sign In">
+      </div>
+      page.get_by_role("Button",name="Sign In").click()
+11.LINK
+      span class="text-white termsText">
+            "I Agree to the "
+      <a href="#">terms and conditions</a>
+      </span>
+      page.get_by_role("link",name="terms and conditions").click()
+12.css selectors
+      #id_name or .classname or tagname
+13.FOR CHECKBOX
+      <span>
+            <input id="terms" name="terms" type="checkbox">
+      </span>
+      Page.locator("#terms").check()
+14.ASSERTIONS
+	<div class="alert alert-danger col-md-12" style="display: none;">
+		<strong>Incorrect</strong>
+		&nbsp; username/password.
+	</div>
+	from playwright.sync_api import expect
+	expect(page.get_by_text("Incorrect username/password.")).to_be_visible()
+15.TAG NAME
+	<app-card-list class="row" _nghost-c2>
+		<!---->
+		<app-card _ngcontent-c2 class="col-lg-3 col-md-6 mb-3"></app-card>{IPHONE X}
+		<app-card _ngcontent-c2 class="col-lg-3 col-md-6 mb-3"></app-card>{SAMSUNG NOTE 8}
+		<app-card _ngcontent-c2 class="col-lg-3 col-md-6 mb-3"></app-card>{NOKIA EDGE}
+		<app-card _ngcontent-c2 class="col-lg-3 col-md-6 mb-3"></app-card>{BLACKBERRY}
+	</app-card-list>
+	iphonex_product=page.locator("app-card").filter(has_text="iphone X")
+	iphonex_product.get_by_role("button").click()
+16.BUTTON CLICK BASED ON TEXT ON BUTTON
+	<li class="nav-item active">
+		<!---->
+		<a class="nav-link btn btn-primary">
+			Checkout (0) »
+			<span class="sr-only">(current)</span>
+		</a>
+	</li>
+	page.get_by_text("Checkout").click()
+17.TO EXTRACT COUNT OF ITEMS SELECTED IN CART
+	<div class="media-body" css="1"> == $0
+	  <h4 class="media-heading"></h4>
+	  <h5 class="media-heading"></h5>
+	  <span>Status: </span>
+	  <span class="text-success">…</span>
+	</div>
+	expect(page.locator("media-body")).to_have_count(2)
+18.CHILDWINDOWS
+      with page.expect_popup() as newPage:			#FOR CATCHING CHILD WINDOW
+            <div class="float-right">
+                  <a href="https://rahulshettyacademy.com/documents-request" class="blinkingText" target="_blank">
+                        Free Access to InterviewQues/ResumeAssistance/Material
+                  </a> == $0
+                  <a href="https://techsmarthire.com/" class="blinkingText" target="_blank">
+                        Get Shortlisted by Recruiters - Take QA Skill Assessments on TechSmartHire
+                  </a>
+            </div>
+            page.locator(".blinkText").click()
+            childpage=newPage.value
+            <p class="im-para red">"Please email us at "
+                  <strong>
+                        <a href="mailto:mentor@rahulshettyacademy.com">
+                                    mentor@rahulshettyacademy.com
+                        </a>
+                  </strong>
+            " with below template to receive response "
+            </p>
+
+            text= chilpage.locator(".red").text_content()
+            print(text)
+19.PLACEHOLDER
+	<input id="name" name="enter-name" class="inputs" placeholder="Hide/Show Example" type="text" xpath="1"> == $0
+	expect(page.get_by_placeholder("Hide/Show Example")).to_be_visible()
+	<input id="hide-textbox" class="btn-style class2" value="Hide" onclick="hideElement()" type="submit" xpath="1"> == $0
+	<input id="show-textbox" class="btn-style class2" value="Show" onclick="showElement()" type="submit">
+	page.get_by_role("button",name="Hide").click()
+	expect(page.get_by_placeholder("Hide/Show Example")).to_be_hidden()
+20.ALERTS
+	page.on("dialog",lambda dialog:dialog.accept())			#for click on YES/OK button on alert window
+	page.on("dialog", lambda dialog: dialog.dismiss())		#or click on NO/CANCEL button on alert window
+	<input id="confirmbtn" class="btn-style" value="Confirm" onclick="displayConfirm()" type="submit" xpath="1"> == $0
+	page.get_by_role("button",name="Confirm").click()
+21.FRAMES
+	<iframe id="courses-iframe" src="https://legacy.rahulshettyacademy.com/" name="iframe-name" style="width: 100%; height: 600px" scrolling="yes" marginwidth="0" marginheight="0" vspace="0" hspace="0" frameborder="0">
+		#document (https://legacy.rahulshettyacademy.com/)
+		<!DOCTYPE html>
+		<html lang="en" class=""> </html> view-source scroll == $0
+	</iframe>
+	pageFrame=page.frame_locator(#courses-iframe)
+	<li class>
+		<a href="lifetime-access" class="new-navbar-highlighter">"All Access plan"</a> == $0
+	</li>
+	pageFrame.get_by_role("link",name="All Access Plan")
+	TO VERIFY THE TEXT IN WHOLE PAGE USE BELOW STATEMENT
+		<div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12">
+			<div class="text style="text-align: center;color: #333;font-family: 'Montserrat';font-weight: bold;padding-bottom:25px">
+				<h2 style="padding-bottom: 25px;"> == $0
+				"Join "
+				<span style="color: #ec5252;">13,522</span>
+				Happy Subscribers!"
+				</h2>
+			<p style="font-size: 18px;font-family: 'Lato';"></p>
+			<p style="font-size: 18px;font-family: 'Lato';"></p>
+	expect(pageFrame.locator("body")).to_contain_text("Happy Subscibers")
+22.TABLE ACCESS
+	<tr>
+	  <th role="columnheader" scope="col" tabindex="0" aria-sort="descending" aria-label="Veg/fruit name: activate to sort column ascending" style="width: 113px;">
+		<span>Veg/fruit name</span>
+		<span class="sort-icon sort-descending" aria-hidden="true"></span>
+	  </th>
+
+	  <th role="columnheader" scope="col" tabindex="0" aria-sort="none" aria-label="Price: activate to sort column ascending" style="width: 38px;">
+		<span>Price</span>
+		<span class="sort-icon sort-none" aria-hidden="true"></span>
+	  </th>
+
+	  <th role="columnheader" scope="col" tabindex="0" aria-sort="none" aria-label="Discount price: activate to sort column ascending" style="width: 101px;" xpath="1">
+		<span>Discount price</span>
+		<span class="sort-icon sort-none" aria-hidden="true"></span>
+	  </th>
+	</tr>
+	    for index in range(page.locator("th").count()):
+        # print(page.locator("th").nth(index).text_content())
+        # value1=page.locator("th").nth(index).filter(has_text="Price")
+        # value2 = page.locator("th").nth(index).filter(has_text="Veg/fruit name")
+        # print(value1)
+        # print(value2)
+        # print(value1.count())
+        # print(value2.count())
+        if page.locator("th").nth(index).filter(has_text="Price").count() > 0:
+            print(page.locator("th").nth(index).text_content())
+            print(index)
+            break
+		time.sleep(5)
+		output for above code is :
+				test_tables.py::test_tables[chromium] 
+				3
+				Veg/fruit name
+				<Locator frame=<Frame name= url='https://rahulshettyacademy.com/seleniumPractise/#/offers'> selector='th >> nth=0 >> internal:has-text="Price"i'>
+				<Locator frame=<Frame name= url='https://rahulshettyacademy.com/seleniumPractise/#/offers'> selector='th >> nth=0 >> internal:has-text="Veg/fruit name"i'>
+				0
+				1
+				Price
+				<Locator frame=<Frame name= url='https://rahulshettyacademy.com/seleniumPractise/#/offers'> selector='th >> nth=1 >> internal:has-text="Price"i'>
+				<Locator frame=<Frame name= url='https://rahulshettyacademy.com/seleniumPractise/#/offers'> selector='th >> nth=1 >> internal:has-text="Veg/fruit name"i'>
+				1
+				0
+				Price
+				1
+				PASSED
+	
+		if page.locator("th").nth(index).filter(has_text="Price").count() > 0:
+		print(page.locator("th").nth(index).text_content())
+		print(index)
+		val=index
+		break
+23.MOUSEHOVER
+	page.locator("#mousehover").hover()
+	page.get_by_role("link",name="Top").click()
+	
+24.AI Automation for playwright
+	cmd> playwright codegen https://rahulshettyacademy.com/AutomationPractice/
+	
+25.APIS
+	class APIUtils:
+	
+		def createToken(self,playwright:Playwright):
+			var = playwright.request.new_context(base_url="https://rahulshettyacademy.com")
+			response=var.post("/api/ecom/auth/login",
+					  data={"userEmail":"rahulshetty@gmail","userPassword":"Iamking@000"})
+			asseret response.ok
+			parse_data=response.json()
+			return parse_data["token"]
+			
+		def createOrder(self,playwright:Playwright):
+			var=playwright.request.new_context(base_url="https://rahulshettyacademy.com")
+			token=self.createToken(playwright)
+			response=var.post("/api/ecom/order/create-order",
+					 data={"orders":[{"country":"India,"productOrderedId":"6581ca399fd99c85e8ee7f45"}]},
+					 headers={"Authorization":token,"content-Type":"application/json"})
+			print(response.json())
+			response_body=response.json()
+			orderId = response_body["orders"][0]
+			return orderId
+		
+		page.get_by_role(button, name="ORDERS").click()
+		row=page.locator("tr").filter(has-text=orderId)
+		row.get_by_role(button, name="View").click()
+		expect(page.locator(".tagline")).to_contain_text("Thank you for Shopping With Us")
+		context.close()
+26.NETWORK INTERCEPT CONCEPT
+      NEED TO TRAVERSE UPTO ORDERS PAGE(https://rahulshettyacademy.com/client)
+      page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*",intercept_response)
+      #the above url we got from click on orders page -> go to networks tab in inspect page ->Headers -> Pick Request url.
+      fakepayloadresponse={"data":[],"message":"No Orders"}
+      def intercept_response(route):
+            route.fulfill(
+                  json=fakepayloadresponse
+                  )
+      #validation the message from html page for zero orders
+      x=page.locator(".mt-4").text_content()
+      print(x)
+
+#->api call from browser -> api call contact server return back response to browser-> browser use response to generate the html.
+27.
+      page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=*",intercept_request)
+      def intercept_request(route):
+            route.continue_(url="https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=/6581ca399fd99c85e8e12345")#url of orders of other account
+      def test_net2(page:Page):
+            logincode
+            click on orders
+            click on view button first element orders in table as shown below statement
+            Page.get_by_role("button",name="View").first.click()
+28.
